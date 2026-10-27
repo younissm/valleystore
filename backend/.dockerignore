@@ -1,0 +1,21 @@
+# Generated Maven output
+**/target/
+**/build/
+*.class
+*.jar
+*.war
+
+# Local secrets and developer metadata
+.env
+.env.*
+!.env.example
+.git/
+.idea/
+.vscode/
+*.iml
+
+# Logs and OS files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

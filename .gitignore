@@ -1,0 +1,52 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+*.secret
+*.pem
+*.key
+
+# Java / Maven
+**/target/
+**/build/
+*.class
+*.jar
+*.war
+*.ear
+
+# Node / Angular
+**/node_modules/
+**/dist/
+**/.angular/
+**/coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+.tmp/
+tmp/
+
+# IDEs and editors
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local database / container data
+pgdata/
+postgres-data/
+minio-data/

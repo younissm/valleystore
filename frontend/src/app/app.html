@@ -1,0 +1,37 @@
+<div class="site-shell" [attr.lang]="languageService.language()" [attr.dir]="languageService.language() === 'ar' ? 'rtl' : 'ltr'">
+  <header class="topbar">
+    <a class="brand" routerLink="/" [attr.aria-label]="languageService.t('homeLabel')">
+      <span class="brand-mark">V</span>
+      <span>valley<span class="brand-light">store</span></span>
+    </a>
+    <nav [attr.aria-label]="languageService.t('shop')">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ languageService.t('shop') }}</a>
+      <a routerLink="/checkout" routerLinkActive="active" class="cart-link">
+        {{ languageService.t('cart') }} <span class="cart-count">{{ cartService.itemCount() }}</span>
+      </a>
+      @if (authService.session(); as session) {
+        <span class="account-email">{{ session.user.email }}</span>
+        <button class="account-action" type="button" (click)="signOut()">{{ languageService.t('signOut') }}</button>
+      } @else {
+        <button class="account-action" type="button" (click)="authService.openAuthentication()">{{ languageService.t('signIn') }}</button>
+      }
+      <label class="language-picker">
+        <span>{{ languageService.t('language') }}</span>
+        <select [attr.aria-label]="languageService.t('languageLabel')" [value]="languageService.language()" (change)="setLanguage($any($event.target).value)">
+          <option value="en">English</option>
+          <option value="ar">العربية</option>
+          <option value="fr">Français</option>
+        </select>
+      </label>
+    </nav>
+  </header>
+  <main class="page-content">
+    @if (authenticationError) { <p class="auth-error" role="alert">{{ authenticationError }}</p> }
+    @if (authService.authenticationVisible()) {
+      <app-auth (close)="authService.closeAuthentication()" />
+    } @else {
+      <router-outlet />
+    }
+  </main>
+  <footer><span>Valleystore</span><span>{{ languageService.t('footer') }}</span></footer>
+</div>

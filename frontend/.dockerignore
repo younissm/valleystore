@@ -1,0 +1,23 @@
+# Generated Angular/Node output
+node_modules/
+.angular/
+dist/
+coverage/
+
+# Local secrets and developer metadata
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+.git/
+.gitignore
+
+# Build-only or non-runtime files
+Dockerfile
+.dockerignore
+README.md
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
